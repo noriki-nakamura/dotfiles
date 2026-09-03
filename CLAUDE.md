@@ -27,3 +27,13 @@ made). Re-running is safe (idempotent).
 None yet. If a config needs to differ per machine or OS, prefer conditionals
 inside the config file itself (most tools support this) over branching in
 `bootstrap.sh`.
+
+## Working style
+
+This repo manages the local development environment directly (dotfiles are
+symlinked into `$HOME`). Do not isolate work in a `git worktree` here — edit
+files directly in this checkout instead. A worktree is a separate copy, and
+edits there don't affect the real local config until merged back, which
+defeats the point of quick, direct edits. (`.claude/settings.json` sets
+`worktree.bgIsolation` to `"none"` so background sessions aren't forced into
+a worktree either.)
