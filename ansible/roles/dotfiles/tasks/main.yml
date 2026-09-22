@@ -1,0 +1,20 @@
+---
+- name: ~/.claude ディレクトリを作成
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.claude"
+    state: directory
+    mode: "0755"
+
+- name: tmux.conf をシンボリックリンク配置
+  ansible.builtin.file:
+    src: "{{ repo_root }}/tmux/tmux.conf"
+    dest: "{{ ansible_env.HOME }}/.tmux.conf"
+    state: link
+    force: true
+
+- name: Claude Code のグローバル CLAUDE.md をシンボリックリンク配置
+  ansible.builtin.file:
+    src: "{{ repo_root }}/claude/CLAUDE.md"
+    dest: "{{ ansible_env.HOME }}/.claude/CLAUDE.md"
+    state: link
+    force: true

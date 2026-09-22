@@ -1,0 +1,10 @@
+---
+- name: dotfiles 環境構築
+  hosts: local
+  vars:
+    repo_root: "{{ (playbook_dir + '/..') | realpath }}"
+  roles:
+    - dotfiles
+    - claude-code
+    - neovim
+    - awscli

@@ -1,7 +1,7 @@
 # CLAUDE.md (global)
 
 Personal, cross-project instructions for Claude Code.
-This file is deployed to `~/.claude/CLAUDE.md` via `make install` in this repo.
+This file is deployed to `~/.claude/CLAUDE.md` via `./bootstrap.sh` (Ansible) in this repo.
 
 ## 言語・コミット規約
 

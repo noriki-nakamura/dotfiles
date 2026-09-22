@@ -1,0 +1,10 @@
+---
+- name: Claude Code のインストール状況を確認
+  ansible.builtin.command: claude --version
+  register: claude_version
+  changed_when: false
+  failed_when: false
+
+- name: Claude Code をインストール(公式ネイティブインストーラ)
+  ansible.builtin.shell: curl -fsSL https://claude.ai/install.sh | bash
+  when: claude_version.rc != 0
